@@ -1,5 +1,8 @@
 cd %~dp0
 
+set WxWidgetsIncludeDir=C:\urbackup\lib\wxWidgets\include\msvc;C:\urbackup\lib\wxWidgets\include\
+set WxWidgetsLibDir=C:\urbackup\lib\wxWidgets\lib\
+
 call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"
 
 msbuild UrBackupClientGUI.sln /p:Configuration=Release /p:Platform="Win32"
@@ -29,6 +32,6 @@ call build_msi.bat
 
 if NOT "%SIGN%" == "true" GOTO skip_signing2
 
-signtool sign /fd sha256 /t http://timestamp.digicert.com /i DigiCert "UrBackup Client $version_short$.exe" "UrBackup Client NoTray $version_short$.exe" "UrBackup Client $version_short$(x64).msi" "UrBackup Client (No tray) $version_short$(x64).msi"
+signtool sign /fd sha256 /t http://timestamp.digicert.com /i DigiCert "UrBackup Client 2.0.31.exe" "UrBackup Client NoTray 2.0.31.exe" "UrBackup Client 2.0.31(x64).msi" "UrBackup Client (No tray) 2.0.31(x64).msi"
 
 :skip_signing2
